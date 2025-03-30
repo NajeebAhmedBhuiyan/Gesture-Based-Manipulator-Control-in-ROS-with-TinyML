@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>kinova_control</name>
+  <version>0.1.0</version>
+  <description>MoveIt service package for manipulator control with keyboard input</description>
+  <maintainer email="nabq2000@gmail.com">nabq</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>moveit_ros_planning_interface</build_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+
+  <exec_depend>moveit_ros_planning_interface</exec_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <exec_depend>pygame</exec_depend>
+  <exec_depend>python3-pyserial</exec_depend>
+  <exec_depend>python3-pynput</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
