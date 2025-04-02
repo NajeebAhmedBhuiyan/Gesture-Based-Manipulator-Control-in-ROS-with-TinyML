@@ -79,6 +79,7 @@ graph TD
   style B fill:#2196F3,stroke:#1976D2
   style C fill:#9C27B0,stroke:#7B1FA2
   style D fill:#FF5722,stroke:#E64A19
+```
 
 ## 🚨 Troubleshooting
 1. **Serial Port Permissions**:
