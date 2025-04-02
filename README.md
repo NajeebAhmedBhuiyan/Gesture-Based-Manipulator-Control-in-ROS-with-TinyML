@@ -65,14 +65,20 @@ Just 1 Arduino Nano 33 BLE Sense board with it's USB cable, thats it!
 
   Each gesture is connected to a particular movement of the Kinova Gen3 Manipulator and upon detecting the particular gestures by the board, it executes that movement.  
 
-## 🧩 Component Diagram
+## 🧩 System Architecture
 ```mermaid
 graph TD
-  A[Arduino Nano] -->|Serial Data| B[ROS2 Bridge]
-  B --> C[Teleop Twist Keyboard]
-  C --> D[Gazebo Simulation]
-  D --> E[Mobile Robot]
-```
+  A[Arduino Nano 33 BLE Sense] -->|Serial| B[Gesture Controller Node]
+  B -->|Service Call| C[MoveIt Service Node]
+  C -->|Trajectory Planning| D[Kinova Gen3 Manipulator]
+  D -->|Joint States| E[RViz/Gazebo]
+  C -->|Diagnostics| F[ROS2 Bag]
+  B -->|GUI Feedback| G[Pygame Interface]
+  
+  style A fill:#4CAF50,stroke:#388E3C
+  style B fill:#2196F3,stroke:#1976D2
+  style C fill:#9C27B0,stroke:#7B1FA2
+  style D fill:#FF5722,stroke:#E64A19
 
 ## 🚨 Troubleshooting
 1. **Serial Port Permissions**:
