@@ -1,4 +1,4 @@
-# Gesture-Based Manipulator Control in ROS 🤖✋
+# Gesture-Based Manipulator Control in ROS with TinyML 🤖✋
 
 **ROS2 Jazzy Package for Kinova Gen3 Manipulator Control Using TinyML-Powered Hand Gestures**  
 *Part of Undergraduate Thesis: "A Bimanual Gesture Interface for ROS-Based Mobile Manipulators Using Edge-AI and Sensor Fusion"*
@@ -8,7 +8,7 @@
 [![Edge Impulse](https://img.shields.io/badge/Edge_Impulse-Project-FF6F00)](https://studio.edgeimpulse.com/public/646751/live)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Control a 7-DOF Kinova Gen3 manipulator in ROS2 using natural hand gestures recognized by an Arduino Nano 33 BLE Sense board with more than 99% accuracy. Integrates TinyML, MoveIt!, and Gazebo for intuitive human-robot interaction.
+Control a 7-DOF Kinova Gen3 manipulator in ROS2 using natural hand gestures recognized by an Arduino Nano 33 BLE Sense board with more than 99% accuracy. Integrates TinyML, and MoveIt! for intuitive human-robot interaction.
 
 ## 📋 Project Overview
 - **TinyML Gesture Recognition**: 6-class CNN model trained via Edge Impulse
@@ -30,8 +30,6 @@ Control a 7-DOF Kinova Gen3 manipulator in ROS2 using natural hand gestures reco
 
 ## 🛠️ Hardware Setup 
 Just 1 Arduino Nano 33 BLE Sense board with it's USB cable, thats it!
-
-![Circuit Diagram](arduino/circuit_diagram.png)
 
 ## ⚙️ Installation
 1. Clone the repository:
