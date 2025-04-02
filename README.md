@@ -4,12 +4,11 @@
 *Part of Undergraduate Thesis: "A Bimanual Gesture Interface for ROS-Based Mobile Manipulators Using Edge-AI and Sensor Fusion"*
 
 [![ROS2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-%23C5221F)](https://docs.ros.org/en/jazzy/)
+[![MoveIt2](https://img.shields.io/badge/MoveIt2-%23C5221F)](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html)
 [![Edge Impulse](https://img.shields.io/badge/Edge_Impulse-Project-FF6F00)](https://studio.edgeimpulse.com/public/646751/live)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Control a 7-DOF Kinova Gen3 manipulator in ROS2 using natural hand gestures recognized by an Arduino Nano 33 BLE Sense board with 98.6% accuracy. Integrates TinyML, MoveIt!, and Gazebo for intuitive human-robot interaction.
-
-https://github.com/NajeebAhmedBhuiyan/Gesture-Based-Manipulator-Control-in-ROS/assets/58342357/abc12345-67d8-90ef-ghij-klmnopqrstuv (Insert demo GIF)
+Control a 7-DOF Kinova Gen3 manipulator in ROS2 using natural hand gestures recognized by an Arduino Nano 33 BLE Sense board with more than 99% accuracy. Integrates TinyML, MoveIt!, and Gazebo for intuitive human-robot interaction.
 
 ## 📋 Project Overview
 - **TinyML Gesture Recognition**: 6-class CNN model trained via Edge Impulse
@@ -17,21 +16,87 @@ https://github.com/NajeebAhmedBhuiyan/Gesture-Based-Manipulator-Control-in-ROS/a
 - **Multi-Sensor Fusion**: APDS-9960 + IMU + environmental sensors
 - **Bimanual Coordination**: Designed to pair with [Mobile Base Control](https://github.com/NajeebAhmedBhuiyan/Gesture-Based-Mobile-Robot-Control-in-ROS)
 
-## 🛠️ Hardware Requirements
-| Component               | Quantity | Purpose                     |
-|-------------------------|----------|-----------------------------|
-| Arduino Nano 33 BLE Sense | 1       | Gesture recognition         |
-| APDS-9960 Sensor        | 1        | Proximity/gesture detection |
-| USB-C Cable             | 1        | Power/communication         |
-| Kinova Gen3 (Sim/Real)  | 1        | Manipulation platform       |
-
-![Circuit Diagram](arduino/circuit_diagram.png)
-
-## 💻 Software Prerequisites
+## 🛠️ Prerequisites
 - **OS**: Ubuntu 24.04 LTS
-- **ROS2**: Jazzy Jalisco ([Install Guide](https://docs.ros.org/en/jazzy/Installation.html))
-- **Arduino CLI** ([Install Guide](https://arduino.github.io/arduino-cli/))
+- **ROS2**: Jazzy Jalisco ([Installation Guide](https://docs.ros.org/en/jazzy/Installation.html))
+- **MoveIt2**: MoveIt2 ([Installation Guide](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html)
+- **Edge Impulse**: [Know about this from here](https://edgeimpulse.com) & [My Impulse](https://studio.edgeimpulse.com/public/646751/live)
+- **Arduino IDE** ([Installation Guide](https://www.arduino.cc/en/software))
 - **Python 3.10+**:
   ```bash
   sudo apt install python3-pip python3-venv
   pip install pyserial pygame
+  ```
+
+## 🛠️ Hardware Setup 
+Just 1 Arduino Nano 33 BLE Sense board with it's USB cable, thats it!
+
+![Circuit Diagram](arduino/circuit_diagram.png)
+
+## ⚙️ Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/NajeebAhmedBhuiyan/Gesture-Based-Manipulator-Control-in-ROS-with-TinyML.git
+   ```
+2. Build the ROS2 workspace:
+   Put the `kinova_control` folder into the `src` file of your `ws_moveit` workspace after installing [MoveIt2](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html) and build it.
+   ```bash
+   cd ws_moveit/
+   colcon build --packages-select kinova_control
+   source install/setup.bash
+   ```
+
+## 🚀 Usage
+1. Flash the Arduino code via the arduino IDE into the Arduino Nano 33 BLE Sense board.
+2. Firstly, launch the Kinova Gen3 in RViz:
+   ```bash
+   ros2 launch moveit2_tutorials demo.launch.py
+   ```
+3. Then, launch the `kinova_control` package:
+   ```bash
+   ros2 launch kinova_control kinova_control.launch.py
+   ```
+4. Control modes:
+   Using the Arduino Nano 33 BLE Sense board, draw any of the following gestures:
+   1. Up-Down
+   2. Forward-Backward
+   3. Left-Right
+   4. Circle
+   5. Rectangle
+   6. Flat Rectangle
+  Each gesture is connected to a particular movement of the Kinova Gen3 Manipulator and upon detecting the particular gestures by the board, it executes that movement.  
+
+## 🧩 Component Diagram
+```mermaid
+graph TD
+  A[Arduino Nano] -->|Serial Data| B[ROS2 Bridge]
+  B --> C[Teleop Twist Keyboard]
+  C --> D[Gazebo Simulation]
+  D --> E[Mobile Robot]
+```
+
+## 🚨 Troubleshooting
+1. **Serial Port Permissions**:
+   ```bash
+   ls /dev/ttyACM*
+   sudo chmod 666 /dev/ttyACM0
+   ```
+2. **Missing Python Packages**:
+   ```bash
+   sudo apt install python3-pip python3-venv
+   pip install pyserial pygame
+   ```
+
+## 📜 License
+Apache License 2.0 - See [LICENSE](LICENSE) file
+
+## 🙌 Contribution
+Contributions welcome! Please follow:
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a pull request
+
+
+
