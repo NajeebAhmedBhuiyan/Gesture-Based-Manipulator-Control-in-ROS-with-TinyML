@@ -68,13 +68,18 @@ Just 1 Arduino Nano 33 BLE Sense board with it's USB cable, thats it!
 ## 🧩 System Architecture
 ```mermaid
 graph TD
-  A[Arduino Nano 33 BLE Sense] -->|Serial| B[Gesture Controller Node]
+  subgraph Operator Station
+    O[Operator] -->|Performs Gestures| G[Pygame GUI]
+  end
+  
+  G -->|Serial Forwarding| A[Arduino Nano 33 BLE Sense]
+  A -->|Serial Data| B[Gesture Controller Node]
   B -->|Service Call| C[MoveIt Service Node]
   C -->|Trajectory Planning| D[Kinova Gen3 Manipulator]
   D -->|Joint States| E[RViz/Gazebo]
-  C -->|Diagnostics| F[ROS2 Bag]
-  B -->|GUI Feedback| G[Pygame Interface]
   
+  style O fill:#FFC107,stroke:#FFA000
+  style G fill:#4CAF50,stroke:#388E3C
   style A fill:#4CAF50,stroke:#388E3C
   style B fill:#2196F3,stroke:#1976D2
   style C fill:#9C27B0,stroke:#7B1FA2
