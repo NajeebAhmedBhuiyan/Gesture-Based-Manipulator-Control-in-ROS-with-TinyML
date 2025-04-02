@@ -63,7 +63,7 @@ Just 1 Arduino Nano 33 BLE Sense board with it's USB cable, thats it!
    5. Rectangle
    6. Flat Rectangle
 
-Each gesture is connected to a particular movement of the Kinova Gen3 Manipulator and upon detecting the particular gestures by the board, it executes that movement.  
+  Each gesture is connected to a particular movement of the Kinova Gen3 Manipulator and upon detecting the particular gestures by the board, it executes that movement.  
 
 ## 🧩 Component Diagram
 ```mermaid
