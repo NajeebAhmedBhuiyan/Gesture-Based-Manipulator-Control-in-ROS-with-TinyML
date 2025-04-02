@@ -4,7 +4,7 @@
 *Part of Undergraduate Thesis: "A Bimanual Gesture Interface for ROS-Based Mobile Manipulators Using Edge-AI and Sensor Fusion"*
 
 [![ROS2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-%23C5221F)](https://docs.ros.org/en/jazzy/)
-[![MoveIt2](https://img.shields.io/badge/MoveIt2-%23C5221F)](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html)
+[![MoveIt2](https://img.shields.io/badge/MoveIt2-Project-%23C5221F)](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html)
 [![Edge Impulse](https://img.shields.io/badge/Edge_Impulse-Project-FF6F00)](https://studio.edgeimpulse.com/public/646751/live)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -62,7 +62,8 @@ Just 1 Arduino Nano 33 BLE Sense board with it's USB cable, thats it!
    4. Circle
    5. Rectangle
    6. Flat Rectangle
-  Each gesture is connected to a particular movement of the Kinova Gen3 Manipulator and upon detecting the particular gestures by the board, it executes that movement.  
+
+Each gesture is connected to a particular movement of the Kinova Gen3 Manipulator and upon detecting the particular gestures by the board, it executes that movement.  
 
 ## 🧩 Component Diagram
 ```mermaid
