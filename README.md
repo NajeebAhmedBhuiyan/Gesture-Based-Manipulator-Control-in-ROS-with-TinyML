@@ -94,13 +94,9 @@ graph TD
    ```
 2. **Missing Python Packages**:
    ```bash
-   sudo apt install python3-pip python3-venv
-   # pyserial is available as python3-serial
-sudo apt update
-sudo apt install python3-serial
-
-# pygame
-sudo apt install python3-pygame
+   sudo apt update
+   sudo apt install python3-serial
+   sudo apt install python3-pygame
    ```
 
 ## 📜 License
