@@ -24,9 +24,10 @@ Control a 7-DOF Kinova Gen3 manipulator in ROS2 using natural hand gestures reco
 - **Arduino IDE** ([Installation Guide](https://www.arduino.cc/en/software))
 - **Python 3.10+**:
   ```bash
-  sudo apt install python3-pip python3-venv
-  pip install pyserial pygame
-  ```
+   sudo apt update
+   sudo apt install python3-serial
+   sudo apt install python3-pygame
+   ```
 
 ## 🛠️ Hardware Setup 
 Just 1 Arduino Nano 33 BLE Sense board with it's USB cable, thats it!
